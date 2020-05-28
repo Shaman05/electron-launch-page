@@ -1,9 +1,11 @@
 {
   "name": "electron-launch-page",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "license": "MIT",
   "author": "shaman",
+  "homepage": "https://github.com/Shaman05/electron-launch-page",
+  "repository": "https://github.com/Shaman05/electron-launch-page",
   "scripts": {
     "watch": "webpack --watch --config=./webpack.config.js",
     "build": "webpack --progress --config=./webpack.config.js",
