@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Launch ...</title>
+	<style type="text/css">
+		html,
+		body,
+		.launch-box{
+			height: 100%;
+			overflow: hidden;
+			margin: 0;
+		}
+		.launch-box{
+			position: relative;
+		}
+		.css-live-wrap{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.percent {
+			fill: white;
+			font-size: 16px;
+		}
+		.wave{
+			fill: rgba(0, 116, 217, .8);
+		}
+		.c1{
+			stroke: white;
+			stroke-width: 10px;
+			fill: transparent;
+		}
+		.c2{
+			stroke: rgba(0, 116, 217, .8);
+			stroke-width: 20px;
+			fill: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="launch-box">
+		<div class="css-live-wrap">
+			<hgroup>
+				<svg width="200px" height="200px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					<g>
+						<path class="wave" d="M 0 100 C 140.6 94.24 45.08 106.32 200 100 A 95 95 0 0 1 0 100 Z">
+							<animate dur="5s" repeatCount="indefinite" attributeName="d" attributeType="XML"
+							         values="M0 100 C90 28, 92 179, 200 100 A95 95 0 0 1 0 100 Z;
+							         M0 100 C145 100, 41 100, 200 100 A95 95 0 0 1 0 100 Z;
+							         M0 100 C90 28, 92 179, 200 100 A95 95 0 0 1 0 100 Z"></animate>
+						</path>
+					</g>
+					<circle class="c1" cx="100" cy="100" r="80"></circle>
+					<circle class="c2" cx="100" cy="100" r="90"></circle>
+					<text id="percent" class="percent" text-anchor="middle" transform="translate(100, 150)">0.00%</text>
+				</svg>
+			</hgroup>
+		</div>
+	</div>
+	<script>
+		const Elp = require('../dist');
+		let percent = document.getElementById('percent');
+		Elp.render.launch({
+			speed: 'slow',
+			onProgress(progress) {
+				percent.innerHTML = progress.toFixed(2) + '%';
+			}
+		});
+	</script>
+</body>
+</html>

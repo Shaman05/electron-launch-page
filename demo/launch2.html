@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Launch ...</title>
+	<style type="text/css">
+		html,
+		body,
+		.launch-box{
+			height: 100%;
+			overflow: hidden;
+		}
+		body, h2{
+			margin: 0;
+			color: white;
+		}
+		h2{
+			text-align: center;
+			line-height: 200px;
+		}
+		.launch-box{
+			position: relative;
+			background: rgba(0, 116, 217, 1);
+		}
+		.launch-box .loading{
+			font-size: 14px;
+			font-weight: bold;
+			font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+			width: 120px;
+			text-align: center;
+			position: absolute;
+			left: 50%;
+			bottom: 50px;
+			margin-left: -60px;
+		}
+		.progress-bar{
+			position: absolute;
+			height: 5px;
+			left: 0;
+			width: 0;
+			bottom: 30px;
+			background-color: white;
+		}
+		.version{
+			position: absolute;
+			right: 4px;
+			bottom: 4px;
+			font-size: 12px;
+			font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+		}
+	</style>
+</head>
+<body>
+	<div class="launch-box">
+		<h2>自定义启动页</h2>
+		<div class="loading">loading  <span id="percent">0%</span></div>
+		<div class="progress-bar" id="processBar"></div>
+		<span class="version" id="version"></span>
+	</div>
+	<script>
+		const Elp = require('../dist');
+		const pkg = require('./package');
+		document.getElementById('version').innerHTML = pkg.version;
+		
+		let processBar = document.getElementById('processBar');
+		let percent = document.getElementById('percent');
+		Elp.render.launch({
+			speed: 'slow',
+			onProgress(progress) {
+				processBar.style.width = progress + '%';
+				percent.innerHTML = Math.floor(progress) + '%';
+			}
+		});
+	</script>
+</body>
+</html>

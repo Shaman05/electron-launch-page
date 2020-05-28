@@ -1,0 +1,17 @@
+{
+  "name": "electron-launch-page",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "author": "shaman",
+  "scripts": {
+    "watch": "webpack --watch --config=./webpack.config.js",
+    "build": "webpack --progress --config=./webpack.config.js",
+    "demo": "cd demo & E:/electron-v6.0.12-win32-x64/electron.exe ."
+  },
+  "files": [
+    "dist",
+    "demo",
+    "readme.md"
+  ]
+}

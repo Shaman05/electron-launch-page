@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试应用主界面</title>
+</head>
+<body>
+	<h2>hello, world!</h2>
+	<p>这是从 electron-launch-page 启动后展示的应用主页。</p>
+	<script>
+		const Elp = require('../dist');
+		//根据实际情况在主界面资源（本地和远程）全部加载完毕后触发显示
+		//模拟页面加载耗时2秒
+		setTimeout(()=> {
+			Elp.render.ready();
+		}, 2000);
+	</script>
+</body>
+</html>
