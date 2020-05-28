@@ -7,10 +7,13 @@
 /demo 文件夹下包含一个完整的使用 electron-launch-page 的示例。
 
 launch1.html: 不透明loading
+![avatar](https://github.com/Shaman05/electron-launch-page/blob/master/demo/111111.gif?raw=true)
 
 launch2.html: 不透明loading，使用进度
+![avatar](https://github.com/Shaman05/electron-launch-page/blob/master/demo/222222.gif?raw=true)
 
 launch3.html: 透明的loading
+![avatar](https://github.com/Shaman05/electron-launch-page/blob/master/demo/333333.gif?raw=true)
 
 ## Installation
 
